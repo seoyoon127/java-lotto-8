@@ -11,7 +11,7 @@ public class LottoCost {
     }
 
     public int getLottoUnit() {
-        return lottoCost % COST_UNIT;
+        return lottoCost / COST_UNIT;
     }
 
     public int getLottoCost() {
