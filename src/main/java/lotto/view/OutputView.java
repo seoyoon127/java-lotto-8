@@ -7,7 +7,7 @@ import java.util.EnumMap;
 import java.util.List;
 
 public class OutputView {
-    static final String LOTTOS_SIZE_PRINT_MSG = "\n개를 구매했습니다.";
+    static final String LOTTOS_SIZE_PRINT_MSG = "개를 구매했습니다.";
     static final String LOTTO_STATS_PRINT_MSG = "\n당첨 통계\n---";
     static final String COUNT_MSG = "개";
     static final String PROFIT_RATE_PRINT_MSG = "총 수익률은 %s%%입니다.";
