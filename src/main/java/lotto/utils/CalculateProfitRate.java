@@ -13,7 +13,7 @@ public class CalculateProfitRate {
         int lottoCost = (size * 1000);
         int profit = calculateProfit(rankResult);
         double profitRate = (double) profit / lottoCost * 100;
-        return Math.round(profitRate * 100) / 100.0;
+        return Math.round(profitRate * 10) / 10.0;
     }
 
     public static int calculateProfit(EnumMap<LottoRank, Integer> rankResult) {
