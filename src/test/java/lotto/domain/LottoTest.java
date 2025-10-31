@@ -1,12 +1,15 @@
 package lotto.domain;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class LottoTest {
@@ -29,5 +32,12 @@ class LottoTest {
     void lottoRange_test(int outRangeNum) {
         assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, outRangeNum)))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("로또 번호가 정렬되는지 확인한다.")
+    @Test
+    void lottoSort_test() {
+        Lotto lotto = new Lotto(new ArrayList<>(List.of(6, 5, 4, 3, 2, 1)));
+        assertThat(lotto.getLotto()).isEqualTo(List.of(1, 2, 3, 4, 5, 6));
     }
 }
