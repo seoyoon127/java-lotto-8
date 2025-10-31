@@ -22,7 +22,7 @@ class ResultTest {
 
     Lottos lottos = new Lottos(2, new FixedLottoStrategy());
     Lotto winLotto = new Lotto(new ArrayList<>(List.of(1, 2, 3, 4, 5, 7)));
-    BonusNum bonusNum = new BonusNum(6, winLotto);
+    BonusNum bonusNum = new BonusNum("6", winLotto);
 
 
     @DisplayName("알맞은 순위 리스트를 반환하는지 확인")

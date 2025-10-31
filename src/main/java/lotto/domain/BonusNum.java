@@ -8,10 +8,19 @@ public class BonusNum {
     private int bonusNum;
     private List<Integer> winNumbers;
 
-    public BonusNum(int bonusNum, Lotto winLotto) {
+    public BonusNum(String bonusNum, Lotto winLotto) {
         winNumbers = winLotto.getLotto();
-        valdiate(bonusNum);
-        this.bonusNum = bonusNum;
+        int convertedBonusNum = convertToInt(bonusNum);
+        valdiate(convertedBonusNum);
+        this.bonusNum = convertedBonusNum;
+    }
+
+    private int convertToInt(String bonusNum) {
+        try {
+            return Integer.parseInt(bonusNum);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 보너스 번호는 숫자여야 합니다.");
+        }
     }
 
     private void valdiate(int bonusNum) {
