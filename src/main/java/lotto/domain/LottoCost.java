@@ -4,9 +4,10 @@ public class LottoCost {
     private int lottoCost;
     private static final int COST_UNIT = 1000;
 
-    public LottoCost(int lottoCost) {
-        validate(lottoCost);
-        this.lottoCost = lottoCost;
+    public LottoCost(String lottoCost) {
+        int convertedLottoCost = convertToInt(lottoCost);
+        validate(convertedLottoCost);
+        this.lottoCost = convertedLottoCost;
     }
 
     public int getLottoUnit() {
@@ -15,6 +16,14 @@ public class LottoCost {
 
     public int getLottoCost() {
         return lottoCost;
+    }
+
+    private int convertToInt(String bonusNum) {
+        try {
+            return Integer.parseInt(bonusNum);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 구매 금액은 숫자여야 합니다.");
+        }
     }
 
     private void validate(int lottoCost) {
