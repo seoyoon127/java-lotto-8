@@ -1,8 +1,9 @@
 package lotto.domain;
 
+import static lotto.utils.Constants.*;
+
 public class LottoCost {
-    private int lottoCost;
-    private static final int COST_UNIT = 1000;
+    private final int lottoCost;
 
     public LottoCost(String lottoCost) {
         int convertedLottoCost = convertToInt(lottoCost);
@@ -22,7 +23,7 @@ public class LottoCost {
         try {
             return Integer.parseInt(bonusNum);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 구매 금액은 숫자여야 합니다.");
+            throw new IllegalArgumentException(COST_INTEGER_ERROR_MSG);
         }
     }
 
@@ -33,13 +34,13 @@ public class LottoCost {
 
     private void validateIsPositive(int lottoCost) {
         if (lottoCost < 0) {
-            throw new IllegalArgumentException("[ERROR] 구입 금액은 양수여야 합니다.");
+            throw new IllegalArgumentException(COST_POSITIVE_ERROR_MSG);
         }
     }
 
     private void validateUnit(int lottoCost) {
         if (lottoCost % COST_UNIT != 0) {
-            throw new IllegalArgumentException("[ERROR] 구매 금액은 1000 단위여야 합니다.");
+            throw new IllegalArgumentException(COST_UNIT_ERROR_MSG);
         }
     }
 }

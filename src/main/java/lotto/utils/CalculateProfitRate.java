@@ -4,13 +4,15 @@ import lotto.domain.enums.LottoRank;
 
 import java.util.EnumMap;
 
+import static lotto.utils.Constants.COST_UNIT;
+
 public class CalculateProfitRate {
 
     private CalculateProfitRate() {
     }
 
     public static double calculate(EnumMap<LottoRank, Integer> rankResult, int size) {
-        int lottoCost = (size * 1000);
+        int lottoCost = (size * COST_UNIT);
         int profit = calculateProfit(rankResult);
         double profitRate = (double) profit / lottoCost * 100;
         return Math.round(profitRate * 10) / 10.0;

@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LottoNumParser {
-    private static String delimiter = ",";
+import static lotto.utils.Constants.*;
 
+public class LottoNumParser {
     private LottoNumParser() {
     }
 
@@ -16,7 +16,7 @@ public class LottoNumParser {
                     .map(Integer::parseInt)
                     .collect(Collectors.toList());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 숫자로 작성해야 합니다.");
+            throw new IllegalArgumentException(LOTTO_INTEGER_ERROR_MSG);
         }
     }
 }

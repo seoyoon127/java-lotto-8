@@ -7,6 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static lotto.utils.Constants.*;
 
 class LottoNumParserTest {
 
@@ -15,7 +16,7 @@ class LottoNumParserTest {
     void InputLottoNotInteger_test() {
         assertThatThrownBy(() -> LottoNumParser.parse("로,또,12,3,4"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 로또 번호는 숫자로 작성해야 합니다.");
+                .hasMessage(LOTTO_INTEGER_ERROR_MSG);
     }
 
     @DisplayName("로또 번호를 리스트로 파싱한다.")

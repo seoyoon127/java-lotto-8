@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.ArrayList;
 import java.util.List;
 
+import static lotto.utils.Constants.*;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class BonusNumTest {
@@ -18,7 +19,7 @@ class BonusNumTest {
     void bonusRange_test(String outRangeNum) {
         assertThatThrownBy(() -> new BonusNum(outRangeNum, new Lotto(new ArrayList<>(List.of(1, 2, 3, 4, 5, 6)))))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 로또 번호는 1~45 사이 숫자여야 합니다.");
+                .hasMessage(RANGE_ERROR_MSG);
     }
 
     @DisplayName("보너스 번호가 당첨 번호와 겹칠 시 예외가 발생한다.")
@@ -26,7 +27,7 @@ class BonusNumTest {
     void validateDuplicate_test() {
         assertThatThrownBy(() -> new BonusNum("1", new Lotto(new ArrayList<>(List.of(1, 2, 3, 4, 5, 6)))))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 보너스 번호는 당첨 번호와 겹쳐서는 안 됩니다.");
+                .hasMessage(BONUS_DUPLICATE_ERROR_MSG);
     }
 
     @DisplayName("보너스 번호가 숫자가 아닐 시 예외가 발생한다.")
@@ -34,6 +35,6 @@ class BonusNumTest {
     void validateString_test() {
         assertThatThrownBy(() -> new BonusNum("@", new Lotto(new ArrayList<>(List.of(1, 2, 3, 4, 5, 6)))))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 보너스 번호는 숫자여야 합니다.");
+                .hasMessage(BONUS_INTEGER_ERROR_MSG);
     }
 }

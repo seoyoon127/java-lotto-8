@@ -2,13 +2,16 @@ package lotto.domain.validator;
 
 import java.util.List;
 
+import static lotto.utils.Constants.*;
+
 public class LottoNumberValidator {
+
     private LottoNumberValidator() {
     }
 
     public static void validateRange(Integer number) {
-        if (number < 1 || number > 45) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 1~45 사이 숫자여야 합니다.");
+        if (number < LOTTO_MIN || number > LOTTO_MAX) {
+            throw new IllegalArgumentException(RANGE_ERROR_MSG);
         }
     }
 
