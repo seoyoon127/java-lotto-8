@@ -25,7 +25,7 @@ class CalculateProfitRateTest {
     @Test
     void calculateProfitRate_test() {
         double profitRate = CalculateProfitRate.calculate(rankResult, 3);
-        assertThat(profitRate).isEqualTo(166.67);
+        assertThat(profitRate).isEqualTo(166.7);
     }
 
 }
