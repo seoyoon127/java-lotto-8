@@ -13,8 +13,13 @@ public class Lotto {
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
-        Collections.sort(new ArrayList<>(numbers));
-        this.numbers = numbers;
+        this.numbers = sortLotto(numbers);
+    }
+
+    private List<Integer> sortLotto(List<Integer> numbers) {
+        List<Integer> sorted = new ArrayList<>(numbers);
+        Collections.sort(sorted);
+        return sorted;
     }
 
     public List<Integer> getLotto() {
